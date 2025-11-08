@@ -1,1 +1,1 @@
-# crypto_bounty_2025
+# crypto_bounty_2025 project
