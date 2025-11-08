@@ -1,0 +1,12 @@
+# Rage Trade Analysis
+- Contract: 0x8E0B8c8BB9db49a46697F3a5Bb8A308e744821D2
+- Chain: Arbitrum
+- Type: Perpetual Exchange
+- Key Functions: 
+  - executePosition()
+  - liquidatePosition() 
+  - updateFundingRate()
+- Attack Vectors:
+  - Price oracle manipulation
+  - Funding rate calculation errors
+  - Liquidation logic flaws

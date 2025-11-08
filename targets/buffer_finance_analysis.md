@@ -1,0 +1,12 @@
+# Buffer Finance Analysis
+- Contract: 0x6B6F743EEC6A6dB6C3925D9950ec6E6C4E5B7d31
+- Chain: Polygon
+- Type: Binary Options
+- Key Functions:
+  - createOption()
+  - exerciseOption()
+  - settleOption()
+- Attack Vectors:
+  - Price feed manipulation
+  - Settlement logic errors
+  - Time window exploits

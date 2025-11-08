@@ -1,0 +1,5 @@
+{
+  "defillama": "https://api.llama.fi/protocols",
+  "etherscan": "YOUR_API_KEY",
+  "twitter": "YOUR_API_KEY"
+}
