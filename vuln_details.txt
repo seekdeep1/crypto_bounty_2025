@@ -1,0 +1,33 @@
+Vulnerability Details
+
+1. Reentrancy in initialize()
+Issue: The initialize() function calls _mint() before updating internal state. _mint() triggers external logic (onTransfer()), allowing a malicious contract to re‑enter initialize() repeatedly.
+Consequence: Unlimited token minting, uncontrolled inflation, and corrupted balances.
+Attack Scenario: A malicious contract re‑enters initialize() during minting, repeatedly inflating supply.
+Example:
+function initialize(...) external initializer { _mint(msg.sender, initialSupply); }
+
+2. Timestamp Misuse in permit()
+Issue: The permit() function relies directly on block.timestamp for signature expiry. Miners can manipulate timestamps within allowed drift.
+Consequence: Replay of expired signatures or premature invalidation of valid ones.
+Attack Scenario: A miner extends block timestamp to replay expired approvals.
+Example:
+require(deadline >= block.timestamp, "Permit expired");
+
+3. Snapshot Corruption in _writeSnapshot()
+Issue: The function uses strict equality (block.number == currentBlock) to determine snapshot validity.
+Consequence: Attackers can manipulate snapshot timing, overwriting governance voting records and corrupting voting power.
+Attack Scenario: Multiple writes in the same block overwrite snapshot values, altering governance outcomes.
+Example:
+if (_lastSnapshot.blockNumber == block.number) { _lastSnapshot.value = newValue; }
+
+4. Inconsistent Solidity Versions
+Issue: Contracts use multiple compiler versions (0.6.0, 0.6.2, 0.6.10).
+Consequence: Exposure to known compiler bugs, undefined behavior, and systemic risk across the suite.
+Attack Scenario: Inconsistent compilation introduces ABI encoder bugs, enabling undefined behavior.
+Example:
+pragma solidity 0.6.0;
+pragma solidity 0.6.2;
+pragma solidity 0.6.10;
+
+Evidence: See attached secret Gist for PoC contract and reproduction logs.
