@@ -43,3 +43,8 @@ What actually happens (include error messages or unexpected results)
 
 **Suggested Fix:**
 [Optional ideas or references]
+nano reports/bug_template.md   # open file
+# replace contents with the single clean scaffold
+git add reports/bug_template.md
+git commit -m "clean bug report template to single scaffold"
+git push
