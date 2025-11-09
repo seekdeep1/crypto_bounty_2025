@@ -1,0 +1,7 @@
+#!/bin/bash
+MSG_FILE=$1
+MSG=$(cat "$MSG_FILE")
+if [ ${#MSG} -lt 10 ]; then
+  echo "❌ Commit message too short. Use at least 10 characters."
+  exit 1
+fi
