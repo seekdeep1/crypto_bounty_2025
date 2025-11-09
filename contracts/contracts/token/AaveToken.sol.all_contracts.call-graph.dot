@@ -1,0 +1,128 @@
+strict digraph {
+rankdir="LR"
+node [shape=box]
+subgraph cluster_993_VersionedInitializable {
+label = "VersionedInitializable"
+"993_getRevision" [label="getRevision"]
+}subgraph cluster_1158_Context {
+label = "Context"
+"1158__msgSender" [label="_msgSender"]
+"1158__msgData" [label="_msgData"]
+}subgraph cluster_1354_SafeMath {
+label = "SafeMath"
+"1354_mod" [label="mod"]
+"1354_div" [label="div"]
+"1354_sub" [label="sub"]
+"1354_mul" [label="mul"]
+"1354_add" [label="add"]
+"1354_sub" -> "1354_sub"
+"1354_mod" -> "1354_mod"
+"1354_div" -> "1354_div"
+}subgraph cluster_1135_Address {
+label = "Address"
+"1135_isContract" [label="isContract"]
+"1135_sendValue" [label="sendValue"]
+}subgraph cluster_1071_IERC20 {
+label = "IERC20"
+"1071_transferFrom" [label="transferFrom"]
+"1071_totalSupply" [label="totalSupply"]
+"1071_transfer" [label="transfer"]
+"1071_balanceOf" [label="balanceOf"]
+"1071_allowance" [label="allowance"]
+"1071_approve" [label="approve"]
+}subgraph cluster_435_AaveToken {
+label = "AaveToken"
+"435__writeSnapshot" [label="_writeSnapshot"]
+"435__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"435_permit" [label="permit"]
+"435_constructor" [label="constructor"]
+"435_initialize" [label="initialize"]
+"435_getRevision" [label="getRevision"]
+"435_constructor" -> "435_constructor"
+"435_permit" -> "435__approve"
+"435_initialize" -> "435__setupDecimals"
+"435_initialize" -> "435_initializer"
+"435_initialize" -> "435__mint"
+"435__beforeTokenTransfer" -> "435_balanceOf"
+"435__beforeTokenTransfer" -> "435__writeSnapshot"
+}subgraph cluster_954_ERC20 {
+label = "ERC20"
+"954__approve" [label="_approve"]
+"954_name" [label="name"]
+"954__burn" [label="_burn"]
+"954_increaseAllowance" [label="increaseAllowance"]
+"954__setupDecimals" [label="_setupDecimals"]
+"954__transfer" [label="_transfer"]
+"954_transferFrom" [label="transferFrom"]
+"954_transfer" [label="transfer"]
+"954_approve" [label="approve"]
+"954__beforeTokenTransfer" [label="_beforeTokenTransfer"]
+"954__mint" [label="_mint"]
+"954_totalSupply" [label="totalSupply"]
+"954_balanceOf" [label="balanceOf"]
+"954_decreaseAllowance" [label="decreaseAllowance"]
+"954_allowance" [label="allowance"]
+"954_decimals" [label="decimals"]
+"954_symbol" [label="symbol"]
+"954_constructor" [label="constructor"]
+"954_transfer" -> "954__transfer"
+"954_decreaseAllowance" -> "954__approve"
+"954_transfer" -> "954__msgSender"
+"954_transferFrom" -> "954__transfer"
+"954_approve" -> "954__approve"
+"954_transferFrom" -> "954__msgSender"
+"954_approve" -> "954__msgSender"
+"954_increaseAllowance" -> "954__approve"
+"954_decreaseAllowance" -> "954__msgSender"
+"954__mint" -> "954__beforeTokenTransfer"
+"954__burn" -> "954__beforeTokenTransfer"
+"954_increaseAllowance" -> "954__msgSender"
+"954_transferFrom" -> "954__approve"
+"954__transfer" -> "954__beforeTokenTransfer"
+}subgraph cluster_447_ITransferHook {
+label = "ITransferHook"
+"447_onTransfer" [label="onTransfer"]
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"extcodehash(uint256)" 
+"balance(address)" 
+"ecrecover(bytes32,uint8,bytes32,bytes32)" 
+"chainid()" 
+"require(bool,string)" 
+"keccak256(bytes)" 
+"abi.encodePacked()" 
+"abi.encode()" 
+"435_permit" -> "ecrecover(bytes32,uint8,bytes32,bytes32)"
+"954__transfer" -> "require(bool,string)"
+"1354_div" -> "require(bool,string)"
+"435_permit" -> "require(bool,string)"
+"435_permit" -> "abi.encode()"
+"435_permit" -> "keccak256(bytes)"
+"1135_isContract" -> "extcodehash(uint256)"
+"435_permit" -> "abi.encodePacked()"
+"1354_mod" -> "require(bool,string)"
+"435_initialize" -> "chainid()"
+"1354_add" -> "require(bool,string)"
+"1354_mul" -> "require(bool,string)"
+"1135_sendValue" -> "balance(address)"
+"954__mint" -> "require(bool,string)"
+"1135_sendValue" -> "require(bool,string)"
+"435_initialize" -> "keccak256(bytes)"
+"954__approve" -> "require(bool,string)"
+"1354_sub" -> "require(bool,string)"
+"435_initialize" -> "abi.encode()"
+"954__burn" -> "require(bool,string)"
+}"954_increaseAllowance" -> "1354_add"
+"435__writeSnapshot" -> "1354_add"
+"954__transfer" -> "1354_sub"
+"954__transfer" -> "1354_add"
+"435__writeSnapshot" -> "1354_sub"
+"435_permit" -> "1354_add"
+"954__mint" -> "1354_add"
+"954_transferFrom" -> "1354_sub"
+"435__beforeTokenTransfer" -> "1354_sub"
+"954_decreaseAllowance" -> "1354_sub"
+"435__beforeTokenTransfer" -> "1354_add"
+"435__beforeTokenTransfer" -> "447_onTransfer"
+"954__burn" -> "1354_sub"
+}

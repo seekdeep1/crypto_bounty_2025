@@ -22,11 +22,15 @@ def scan_with_slither(contract_address):
         print(f"⚠️ Scan failed: {e}")
     return False
 
+
 def get_new_protocols():
     try:
         response = requests.get("https://api.llama.fi/protocols", timeout=10)
         protocols = response.json()
-        new_protocols = [p for p in protocols if p['addedToDefillama'] > (time.time() - 259200)]
+        # keep only entries with a valid Ethereum address (0x + 40 hex chars)
+        new_protocols = [p for p in protocols if p.get("address") and re.fullmatch(r"0x[a-fA-F0-9]{40}", str(p["address"]))]
+        # optional: prefer entries with an addedToDefillama timestamp if present
+        new_protocols.sort(key=lambda x: x.get("addedToDefillama") or 0, reverse=True)
         return new_protocols[:3]
     except Exception as e:
         print(f"API Error: {e}")
