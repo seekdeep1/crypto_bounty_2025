@@ -1,3 +1,6 @@
 [submodule "v2-core"]
 	path = v2-core
 	url = git@github.com:seekdeep1/v2-core.git
+[submodule "v3-core"]
+	path = v3-core
+	url = git@github.com:seekdeep1/v3-core.git
