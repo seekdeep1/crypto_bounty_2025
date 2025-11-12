@@ -1,0 +1,4 @@
+forge Version: 1.4.4-stable
+Commit SHA: 05794498bf47257b144e2e2789a1d5bf8566be0e
+Build Timestamp: 2025-11-03T23:44:21.031788094Z (1762213461)
+Build Profile: maxperf
